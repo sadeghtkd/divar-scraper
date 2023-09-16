@@ -28,7 +28,6 @@ def get_ads(page):
             'Accept-Encoding': 'gzip, deflate, br',
             'Content-Type': 'application/json; charset=utf-8',
             'Connection': 'keep-alive',
-            #'Cookie': '_ga=GA1.2.322852851.1628572990; multi-city=mashhad^%^7C; city=mashhad; _ga_SXEW31VJGJ=GS1.1.1694787170.8.1.1694788282.58.0.0; did=a45164e0-599b-4f53-8c56-08a1d67cf2f1; _gcl_au=1.1.1467059821.1692583415; token=; chat_opened=; sessionid=; _gid=GA1.2.369161043.1694787170; _gat=1',
             'TE': 'trailers'
         }
         response = requests.request(
@@ -79,11 +78,9 @@ while (page <= page_count):
         for widget in data_section["widgets"]:
             if widget["widget_type"] == "UNEXPANDABLE_ROW":
                 row[widget["data"]["title"]] = clean_num( convert_fa_nums( widget["data"]["value"]))
-                # print(  widget["data"]["title"]+" , "+widget["data"]["value"])
             elif widget["widget_type"] == "GROUP_INFO_ROW":
                 for item in widget["data"]["items"]:
                     row[item["title"]] = clean_num( convert_fa_nums( item["value"]))
-                    # print(  item["title"]+" , "+item["value"])
         print(row)
         rows.append(row)
     page += 1

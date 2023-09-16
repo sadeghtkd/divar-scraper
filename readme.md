@@ -1,0 +1,1 @@
+Sample python code to scrape ads from Divar website and save the list as excel file.
